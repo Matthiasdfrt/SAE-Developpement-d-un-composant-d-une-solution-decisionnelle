@@ -34,3 +34,5 @@ git clone [url-du-repo]
 
 ## Licence
 Ce projet est sous licence MIT
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
