@@ -21,12 +21,25 @@ git clone [url-du-repo]
 
 ## Structure du projet
 ```
-├── src/
-│   ├── php/
-│   ├── js/
-│   └── css/
-├── data/
-└── index.html
+├── controllers/
+│   └── controller.php
+├── includes/
+│   ├── .htaccess
+│   └── config.inc.php
+├── models/
+│   ├── indicateur.php
+│   ├── pays.php
+│   └── regions.php
+├── public/
+│   ├── graphique.js
+│   └── style.css
+├── views/
+│   ├── analyse_indicateurs.php
+│   ├── comparaison_pays.php
+│   ├── evolution_indicateurs.php
+│   └── infos_pays.php
+├── index.php
+└── README.md
 ```
 
 ## Auteurs
