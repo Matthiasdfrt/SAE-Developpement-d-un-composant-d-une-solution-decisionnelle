@@ -4,7 +4,7 @@ function getBDD() {
     //vérifie si la connexion est déjà établie
     if ($conn === null) {
         $db_host = "localhost";
-        $db_name = "jouets";
+        $db_name = "economie_mondiale";
         $db_user = "root";
         $db_pass = "";
 
