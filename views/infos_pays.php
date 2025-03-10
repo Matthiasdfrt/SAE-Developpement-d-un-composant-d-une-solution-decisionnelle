@@ -22,6 +22,9 @@
             echo "<option value='" . $annee['id'] . "'>" . $annee['annee'] . "</option>";
         }?>
     </select>
+    <?php
+    echo var_dump($moy);
+    ?>
 
 </body>
 </html>
