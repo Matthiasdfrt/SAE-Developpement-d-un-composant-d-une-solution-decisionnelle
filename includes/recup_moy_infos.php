@@ -1,6 +1,8 @@
 <?php
+require_once "config.inc.php";
 
-function getMoyenneIndicateurs($pays, $annee) {
+
+function getMoyenneIndicateurs($pays, $annee=NULL) {
     $conn = getBDD();   
     if ($annee) {
         $sql = "SELECT p.nom_pays, i.annee, i.taux_natalite, i.taux_mortalite, i.consommation_electricite, i.pib, 
@@ -8,11 +10,11 @@ function getMoyenneIndicateurs($pays, $annee) {
                 i.esperance_vie, i.densite_population, i.taux_chomage 
                 FROM indicateurs i
                 INNER JOIN pays p ON i.code_pays = p.code_pays
-                WHERE p.nom_pays = ? AND i.annee = ?";
+                WHERE p.code_pays = ? AND i.annee = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("si", $pays, $annee);
     } else {
-        $sql = "SELECT p.nom_pays, i.annee, AVG(i.taux_natalite) as taux_natalite, 
+        $sql = "SELECT p.nom_pays, AVG(i.taux_natalite) as taux_natalite, 
                 AVG(i.taux_mortalite) as taux_mortalite,
                 AVG(i.consommation_electricite) as consommation_electricite, 
                 AVG(i.pib) as pib,
@@ -24,7 +26,7 @@ function getMoyenneIndicateurs($pays, $annee) {
                 AVG(i.taux_chomage) as taux_chomage
                 FROM indicateurs i
                 INNER JOIN pays p ON i.code_pays = p.code_pays
-                WHERE p.nom_pays = ?";
+                WHERE p.code_pays = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("s", $pays);
     }

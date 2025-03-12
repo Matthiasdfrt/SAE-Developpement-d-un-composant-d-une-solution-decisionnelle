@@ -7,7 +7,8 @@
 <body>
 
 <h2>Ajouter un Nouveau Jouet</h2>
-<label for="nom_pays">Pays :</label>
+<form id="form" method="POST" action="../controllers/controller.php">
+    <label for="nom_pays">Pays :</label>
     <select name="nom_pays" id="nom_pays" required>
         <option value="">Sélectionner un pays</option>
         <?php foreach ($pays as $pay) {
@@ -15,16 +16,27 @@
         }?>
     </select>
 
-<label for="annee">Année :</label>
-    <select name="annee" id="annee" required>
+    <label for="annee">Année :</label>
+    <select name="annee" id="annee">
         <option value="">Sélectionner une année</option>
         <?php foreach ($annees as $annee) {
-            echo "<option value='" . $annee['id'] . "'>" . $annee['annee'] . "</option>";
+            echo "<option value='" . $annee['annee'] . "'>" . $annee['annee'] . "</option>";
         }?>
     </select>
-    <?php
-    echo var_dump($moy);
-    ?>
 
+    <button type="submit">Montrer</button>
+</form>
+
+<div id="result">
+    <?php
+    if (isset($moy)) {
+        echo "<table>";
+        foreach ($moy as $key => $value) {
+            echo "<tr><td>$key :</td><td>$value</td></tr>";
+        }
+        echo "</table>";
+    }
+    ?>
+</div>
 </body>
 </html>

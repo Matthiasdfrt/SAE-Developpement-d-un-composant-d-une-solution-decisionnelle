@@ -1,2 +1,4 @@
 Deny from all
 
+# Interdire l'accès à tous les fichiers par défaut
+Deny from all
